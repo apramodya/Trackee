@@ -13,6 +13,12 @@
 		79860165225883B100AEBC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79860163225883B100AEBC47 /* Main.storyboard */; };
 		7986016A225883B300AEBC47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79860168225883B300AEBC47 /* LaunchScreen.storyboard */; };
 		798601732259173700AEBC47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 798601722259173700AEBC47 /* Assets.xcassets */; };
+		79900D6F225A092D009E168F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D6E225A092D009E168F /* CategoryViewController.swift */; };
+		79900D71225A094A009E168F /* AddEditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D70225A094A009E168F /* AddEditCategoryViewController.swift */; };
+		79900D73225A0961009E168F /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D72225A0961009E168F /* TransactionViewController.swift */; };
+		79900D75225A096B009E168F /* AddEditTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D74225A096B009E168F /* AddEditTransactionViewController.swift */; };
+		79900D77225A09CA009E168F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D76225A09CA009E168F /* Constants.swift */; };
+		799BF82A225A071C00A54AB3 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799BF829225A071C00A54AB3 /* SummaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		79860169225883B300AEBC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7986016B225883B300AEBC47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		798601722259173700AEBC47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79900D6E225A092D009E168F /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		79900D70225A094A009E168F /* AddEditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditCategoryViewController.swift; sourceTree = "<group>"; };
+		79900D72225A0961009E168F /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		79900D74225A096B009E168F /* AddEditTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTransactionViewController.swift; sourceTree = "<group>"; };
+		79900D76225A09CA009E168F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		799BF829225A071C00A54AB3 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		8A4D4B110AAB2D8C41774AF0 /* Pods-Trackee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trackee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trackee/Pods-Trackee.release.xcconfig"; sourceTree = "<group>"; };
 		E26FAEC567FE4595CF9C193A /* Pods_Trackee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trackee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,12 +84,50 @@
 			isa = PBXGroup;
 			children = (
 				7986015F225883B100AEBC47 /* AppDelegate.swift */,
+				79900D6C225A0873009E168F /* Data Model */,
+				79900D6D225A0895009E168F /* View */,
+				799BF828225A070800A54AB3 /* Controllers */,
+				79900D6B225A0867009E168F /* Supporting files */,
 				79860161225883B100AEBC47 /* ViewController.swift */,
-				79860163225883B100AEBC47 /* Main.storyboard */,
-				79860168225883B300AEBC47 /* LaunchScreen.storyboard */,
 				7986016B225883B300AEBC47 /* Info.plist */,
 			);
 			path = Trackee;
+			sourceTree = "<group>";
+		};
+		79900D6B225A0867009E168F /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				79860168225883B300AEBC47 /* LaunchScreen.storyboard */,
+				79900D76225A09CA009E168F /* Constants.swift */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		79900D6C225A0873009E168F /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		79900D6D225A0895009E168F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79860163225883B100AEBC47 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		799BF828225A070800A54AB3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				799BF829225A071C00A54AB3 /* SummaryViewController.swift */,
+				79900D6E225A092D009E168F /* CategoryViewController.swift */,
+				79900D70225A094A009E168F /* AddEditCategoryViewController.swift */,
+				79900D72225A0961009E168F /* TransactionViewController.swift */,
+				79900D74225A096B009E168F /* AddEditTransactionViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F907709DB6687A43C71D44F1 /* Frameworks */ = {
@@ -204,8 +254,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79900D6F225A092D009E168F /* CategoryViewController.swift in Sources */,
+				79900D73225A0961009E168F /* TransactionViewController.swift in Sources */,
+				79900D75225A096B009E168F /* AddEditTransactionViewController.swift in Sources */,
 				79860162225883B100AEBC47 /* ViewController.swift in Sources */,
+				79900D71225A094A009E168F /* AddEditCategoryViewController.swift in Sources */,
 				79860160225883B100AEBC47 /* AppDelegate.swift in Sources */,
+				799BF82A225A071C00A54AB3 /* SummaryViewController.swift in Sources */,
+				79900D77225A09CA009E168F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

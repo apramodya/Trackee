@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="1180" y="686"/>
         </scene>
-        <!--View Controller-->
+        <!--Category View Controller-->
         <scene sceneID="6qv-WZ-7fv">
             <objects>
-                <viewController id="eCf-jX-ETD" sceneMemberID="viewController">
+                <viewController id="eCf-jX-ETD" customClass="CategoryViewController" customModule="Trackee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RTt-Ax-6Vp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,7 +46,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efP-NW-2F9">
-                                                    <rect key="frame" x="14" y="10.5" width="260" height="39.5"/>
+                                                    <rect key="frame" x="14" y="10.5" width="315" height="39.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="2744.8000000000002" y="685.90704647676171"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Edit Category View Controller-->
         <scene sceneID="bnT-ur-OUw">
             <objects>
-                <viewController id="hkP-El-S3Q" sceneMemberID="viewController">
+                <viewController id="hkP-El-S3Q" customClass="AddEditCategoryViewController" customModule="Trackee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ckx-7p-D0f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,10 +183,10 @@
             </objects>
             <point key="canvasLocation" x="3493.5999999999999" y="685.90704647676171"/>
         </scene>
-        <!--View Controller-->
+        <!--Transaction View Controller-->
         <scene sceneID="bhm-gc-1zP">
             <objects>
-                <viewController id="47f-f0-qeh" sceneMemberID="viewController">
+                <viewController id="47f-f0-qeh" customClass="TransactionViewController" customModule="Trackee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XPp-CF-a3G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -203,22 +203,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EL1-Fc-97N">
-                                                    <rect key="frame" x="15" y="10" width="258" height="30"/>
+                                                    <rect key="frame" x="15" y="10" width="313" height="30"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bus fair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4G-vF-sBQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="69.5" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kyh-zC-VQ0">
-                                                            <rect key="frame" x="79.5" y="0.0" width="100.5" height="30"/>
+                                                            <rect key="frame" x="94" y="0.0" width="122" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.80" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8f6-2W-YDy">
-                                                            <rect key="frame" x="190" y="0.0" width="68" height="30"/>
+                                                            <rect key="frame" x="226" y="0.0" width="87" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -257,10 +257,10 @@
             </objects>
             <point key="canvasLocation" x="2744.8000000000002" y="-75.112443778110944"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Edit Transaction View Controller-->
         <scene sceneID="eSd-b3-2af">
             <objects>
-                <viewController id="T5o-1O-x3h" sceneMemberID="viewController">
+                <viewController id="T5o-1O-x3h" customClass="AddEditTransactionViewController" customModule="Trackee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jvN-Qs-xHR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -418,7 +418,7 @@
         <!--Summary-->
         <scene sceneID="bDA-8a-FjP">
             <objects>
-                <viewController id="4U1-hA-rIU" sceneMemberID="viewController">
+                <viewController id="4U1-hA-rIU" customClass="SummaryViewController" customModule="Trackee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nuz-Bk-8xO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -483,6 +483,9 @@
                                         <state key="normal" title="&lt;">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="gotoPrevMonth:" destination="4U1-hA-rIU" eventType="touchUpInside" id="PbL-GH-hGl"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="December" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Q42-nY-P6z">
                                         <rect key="frame" x="50" y="0.0" width="243" height="60"/>
@@ -499,6 +502,9 @@
                                         <state key="normal" title="&gt;">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="gotoNextMonth:" destination="4U1-hA-rIU" eventType="touchUpInside" id="bYP-Oy-zdj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -516,6 +522,14 @@
                         <viewLayoutGuide key="safeArea" id="bIU-B3-sL3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Summary" id="A8Q-MM-bCn"/>
+                    <connections>
+                        <outlet property="balanceLbl" destination="DTs-3t-HRx" id="ZU5-UG-DQd"/>
+                        <outlet property="expencesLbl" destination="S9p-tX-SiN" id="XhB-R2-RO7"/>
+                        <outlet property="incomeLbl" destination="51R-Tp-gLv" id="ZV1-FR-UU9"/>
+                        <outlet property="month" destination="Q42-nY-P6z" id="95o-he-4CM"/>
+                        <outlet property="nextMonth" destination="CuF-lO-mDw" id="4U9-b8-Dbm"/>
+                        <outlet property="prevMonth" destination="hgS-JU-HZf" id="xnT-31-dKl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URO-Ua-RDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
