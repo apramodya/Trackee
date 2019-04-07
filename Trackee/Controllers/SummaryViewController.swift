@@ -38,7 +38,7 @@ class SummaryViewController: UIViewController {
         
         // currency formatter
         let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "si_LK")
+        formatter.locale = Locale.current
         formatter.numberStyle = .currency
         
         // display month label

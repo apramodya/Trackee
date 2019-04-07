@@ -19,6 +19,9 @@
 		79900D75225A096B009E168F /* AddEditTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D74225A096B009E168F /* AddEditTransactionViewController.swift */; };
 		79900D77225A09CA009E168F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D76225A09CA009E168F /* Constants.swift */; };
 		79900D79225A202E009E168F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D78225A202E009E168F /* Functions.swift */; };
+		79900D7B225A5188009E168F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D7A225A5188009E168F /* Category.swift */; };
+		79900D7D225A5234009E168F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D7C225A5234009E168F /* Item.swift */; };
+		79900D80225A6EB8009E168F /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D7E225A6EB8009E168F /* CategoryTableViewCell.swift */; };
 		799BF82A225A071C00A54AB3 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799BF829225A071C00A54AB3 /* SummaryViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,9 @@
 		79900D74225A096B009E168F /* AddEditTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTransactionViewController.swift; sourceTree = "<group>"; };
 		79900D76225A09CA009E168F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		79900D78225A202E009E168F /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		79900D7A225A5188009E168F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		79900D7C225A5234009E168F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		79900D7E225A6EB8009E168F /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		799BF829225A071C00A54AB3 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		8A4D4B110AAB2D8C41774AF0 /* Pods-Trackee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trackee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trackee/Pods-Trackee.release.xcconfig"; sourceTree = "<group>"; };
 		E26FAEC567FE4595CF9C193A /* Pods_Trackee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trackee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +115,8 @@
 		79900D6C225A0873009E168F /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				79900D7A225A5188009E168F /* Category.swift */,
+				79900D7C225A5234009E168F /* Item.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -117,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				79860163225883B100AEBC47 /* Main.storyboard */,
+				79900D7E225A6EB8009E168F /* CategoryTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -258,14 +267,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				79900D6F225A092D009E168F /* CategoryViewController.swift in Sources */,
+				79900D7B225A5188009E168F /* Category.swift in Sources */,
 				79900D73225A0961009E168F /* TransactionViewController.swift in Sources */,
 				79900D79225A202E009E168F /* Functions.swift in Sources */,
 				79900D75225A096B009E168F /* AddEditTransactionViewController.swift in Sources */,
 				79860162225883B100AEBC47 /* ViewController.swift in Sources */,
+				79900D7D225A5234009E168F /* Item.swift in Sources */,
 				79900D71225A094A009E168F /* AddEditCategoryViewController.swift in Sources */,
 				79860160225883B100AEBC47 /* AppDelegate.swift in Sources */,
 				799BF82A225A071C00A54AB3 /* SummaryViewController.swift in Sources */,
 				79900D77225A09CA009E168F /* Constants.swift in Sources */,
+				79900D80225A6EB8009E168F /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

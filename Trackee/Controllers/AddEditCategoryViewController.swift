@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
 
-class AddEditCategoryViewController: UIViewController{
+class AddEditCategoryViewController: UIViewController, UINavigationControllerDelegate {
     
     // IBOutlets
     @IBOutlet weak var typePicker: UIPickerView!
@@ -16,7 +17,9 @@ class AddEditCategoryViewController: UIViewController{
     @IBOutlet weak var saveBtn: UIButton!
     
     // variables
+    let realm = try! Realm()
     var selectedType = types[0]
+    var categories: Results<Category>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +42,26 @@ class AddEditCategoryViewController: UIViewController{
             return
         }
         
-        print(category)
-        print(selectedType)
+        let newCategory = Category()
+        newCategory.name = category
+        newCategory.type = selectedType
+        
+        self.save(cateogry: newCategory)
+    }
+    
+    // save category
+    func save(cateogry: Category) {
+        do {
+            try realm.write {
+                realm.add(cateogry)
+            }
+        } catch {
+            debugPrint("Error in saving category. >>>> \(error.localizedDescription)")
+            return
+        }
+        
+        navigationController?.popViewController(animated: true)
+        
     }
     
 }
