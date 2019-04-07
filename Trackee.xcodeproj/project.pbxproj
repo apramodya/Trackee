@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		699F709151CD8A03FACA2380 /* Pods_Trackee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26FAEC567FE4595CF9C193A /* Pods_Trackee.framework */; };
 		79860160225883B100AEBC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986015F225883B100AEBC47 /* AppDelegate.swift */; };
 		79860162225883B100AEBC47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79860161225883B100AEBC47 /* ViewController.swift */; };
 		79860165225883B100AEBC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79860163225883B100AEBC47 /* Main.storyboard */; };
-		79860167225883B300AEBC47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79860166225883B300AEBC47 /* Assets.xcassets */; };
 		7986016A225883B300AEBC47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79860168225883B300AEBC47 /* LaunchScreen.storyboard */; };
+		798601732259173700AEBC47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 798601722259173700AEBC47 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F8B260883C014A8CE5CF0A7 /* Pods-Trackee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trackee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trackee/Pods-Trackee.debug.xcconfig"; sourceTree = "<group>"; };
 		7986015C225883B100AEBC47 /* Trackee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trackee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7986015F225883B100AEBC47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79860161225883B100AEBC47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79860164225883B100AEBC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		79860166225883B300AEBC47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79860169225883B300AEBC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7986016B225883B300AEBC47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		798601722259173700AEBC47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8A4D4B110AAB2D8C41774AF0 /* Pods-Trackee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trackee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trackee/Pods-Trackee.release.xcconfig"; sourceTree = "<group>"; };
+		E26FAEC567FE4595CF9C193A /* Pods_Trackee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trackee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				699F709151CD8A03FACA2380 /* Pods_Trackee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A65873D66EAA552DECB57D9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F8B260883C014A8CE5CF0A7 /* Pods-Trackee.debug.xcconfig */,
+				8A4D4B110AAB2D8C41774AF0 /* Pods-Trackee.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		79860153225883B000AEBC47 = {
 			isa = PBXGroup;
 			children = (
 				7986015E225883B100AEBC47 /* Trackee */,
+				798601722259173700AEBC47 /* Assets.xcassets */,
 				7986015D225883B100AEBC47 /* Products */,
+				0A65873D66EAA552DECB57D9 /* Pods */,
+				F907709DB6687A43C71D44F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,11 +74,18 @@
 				7986015F225883B100AEBC47 /* AppDelegate.swift */,
 				79860161225883B100AEBC47 /* ViewController.swift */,
 				79860163225883B100AEBC47 /* Main.storyboard */,
-				79860166225883B300AEBC47 /* Assets.xcassets */,
 				79860168225883B300AEBC47 /* LaunchScreen.storyboard */,
 				7986016B225883B300AEBC47 /* Info.plist */,
 			);
 			path = Trackee;
+			sourceTree = "<group>";
+		};
+		F907709DB6687A43C71D44F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E26FAEC567FE4595CF9C193A /* Pods_Trackee.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7986016E225883B300AEBC47 /* Build configuration list for PBXNativeTarget "Trackee" */;
 			buildPhases = (
+				D2F0ADAA97D8219E9DBB1643 /* [CP] Check Pods Manifest.lock */,
 				79860158225883B100AEBC47 /* Sources */,
 				79860159225883B100AEBC47 /* Frameworks */,
 				7986015A225883B100AEBC47 /* Resources */,
+				264F4E26F4C7120FB1C9D9E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,12 +149,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				7986016A225883B300AEBC47 /* LaunchScreen.storyboard in Resources */,
-				79860167225883B300AEBC47 /* Assets.xcassets in Resources */,
+				798601732259173700AEBC47 /* Assets.xcassets in Resources */,
 				79860165225883B100AEBC47 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		264F4E26F4C7120FB1C9D9E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Trackee/Pods-Trackee-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Trackee/Pods-Trackee-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2F0ADAA97D8219E9DBB1643 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Trackee-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		79860158225883B100AEBC47 /* Sources */ = {
@@ -280,6 +349,7 @@
 		};
 		7986016F225883B300AEBC47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F8B260883C014A8CE5CF0A7 /* Pods-Trackee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +368,7 @@
 		};
 		79860170225883B300AEBC47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A4D4B110AAB2D8C41774AF0 /* Pods-Trackee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
