@@ -18,6 +18,7 @@
 		79900D73225A0961009E168F /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D72225A0961009E168F /* TransactionViewController.swift */; };
 		79900D75225A096B009E168F /* AddEditTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D74225A096B009E168F /* AddEditTransactionViewController.swift */; };
 		79900D77225A09CA009E168F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D76225A09CA009E168F /* Constants.swift */; };
+		79900D79225A202E009E168F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79900D78225A202E009E168F /* Functions.swift */; };
 		799BF82A225A071C00A54AB3 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799BF829225A071C00A54AB3 /* SummaryViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		79900D72225A0961009E168F /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		79900D74225A096B009E168F /* AddEditTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTransactionViewController.swift; sourceTree = "<group>"; };
 		79900D76225A09CA009E168F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		79900D78225A202E009E168F /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		799BF829225A071C00A54AB3 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		8A4D4B110AAB2D8C41774AF0 /* Pods-Trackee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trackee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trackee/Pods-Trackee.release.xcconfig"; sourceTree = "<group>"; };
 		E26FAEC567FE4595CF9C193A /* Pods_Trackee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trackee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 			children = (
 				79860168225883B300AEBC47 /* LaunchScreen.storyboard */,
 				79900D76225A09CA009E168F /* Constants.swift */,
+				79900D78225A202E009E168F /* Functions.swift */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				79900D6F225A092D009E168F /* CategoryViewController.swift in Sources */,
 				79900D73225A0961009E168F /* TransactionViewController.swift in Sources */,
+				79900D79225A202E009E168F /* Functions.swift in Sources */,
 				79900D75225A096B009E168F /* AddEditTransactionViewController.swift in Sources */,
 				79860162225883B100AEBC47 /* ViewController.swift in Sources */,
 				79900D71225A094A009E168F /* AddEditCategoryViewController.swift in Sources */,
