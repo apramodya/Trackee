@@ -21,6 +21,9 @@ class SummaryViewController: UIViewController {
     // variables
     var showingMonth: Int = 0
     var showingYear: Int = 0
+    var income: Double = 0.0
+    var expences: Double = 0.0
+    var balance: Double = 0.0
     
     
     override func viewDidLoad() {
@@ -29,12 +32,24 @@ class SummaryViewController: UIViewController {
         // initialize variable values
         showingMonth = getCurrentMonth()
         showingYear = getCurrentYear()
+        income = getIncome(forMonth: showingMonth)
+        expences = getExpences(forMonth: showingMonth)
+        balance = getBalance(forMonth: showingMonth)
+        
+        // currency formatter
+        let formatter = NumberFormatter()
+        formatter.locale = Locale(identifier: "si_LK")
+        formatter.numberStyle = .currency
         
         // display month label
         month.text = months[showingMonth-1]
         
+        // display income, expences and balance
+        incomeLbl.text = formatter.string(from: income as NSNumber)
+        expencesLbl.text = formatter.string(from: expences as NSNumber)
+        balanceLbl.text = formatter.string(from: balance as NSNumber)
+        
     }
-    
     
     @IBAction func gotoPrevMonth(_ sender: Any) {
         showingMonth = getPrevMonth()
@@ -52,6 +67,26 @@ class SummaryViewController: UIViewController {
 extension SummaryViewController {
     
     // MARK: - Supporting functions
+    
+    func getIncome(forMonth month: Int) -> Double {
+        let income = 10000.00
+        
+        return income
+    }
+    
+    func getExpences(forMonth month: Int) -> Double {
+        let expences = 3500.00
+        
+        return expences
+    }
+    
+    func getBalance(forMonth month: Int) -> Double {
+        let income = getIncome(forMonth: month)
+        let expences = getExpences(forMonth: month)
+        let balance = income - expences
+        
+        return balance
+    }
     
     func getCurrentMonth() -> Int {
         let date = Date()

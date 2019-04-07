@@ -12,6 +12,11 @@ struct Segues {
     
 }
 
+struct type {
+    static let income = "Income"
+    static let expence = "Expence"
+}
+
 let months = [
     "January",
     "February",
