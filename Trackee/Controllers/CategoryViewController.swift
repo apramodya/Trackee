@@ -13,7 +13,6 @@ class CategoryViewController: UIViewController {
 
     // IBOutlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var category: UILabel!
     
     // variables
     var realm = try! Realm()

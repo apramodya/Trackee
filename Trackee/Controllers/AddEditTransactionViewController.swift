@@ -49,6 +49,7 @@ class AddEditTransactionViewController: UIViewController, UINavigationController
     
     func getDataToSave() {
         selectedDate = datePicker.date
+        note = noteTxtArea.text
         
         // validate amount
         guard let guardedAmount = amountTxt.text, guardedAmount.isNotEmpty, guardedAmount.isNumber else {
@@ -86,6 +87,7 @@ class AddEditTransactionViewController: UIViewController, UINavigationController
         newTransaction.date = selectedDate
         newTransaction.amount = amount
         newTransaction.note = note
+        newTransaction.category = selectedCategory.name
         
         self.saveTransaction(transaction: newTransaction)
     }

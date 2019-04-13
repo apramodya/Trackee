@@ -14,5 +14,6 @@ class Item: Object {
     @objc dynamic var date : Date = Date()
     @objc dynamic var amount: Double = 0.0
     @objc dynamic var note: String = ""
-    var category = LinkingObjects(fromType: Category.self, property: "items")
+    @objc dynamic var category: String = ""
+//    var parentCategory = LinkingObjects(fromType: Category.self, property: "items")
 }
