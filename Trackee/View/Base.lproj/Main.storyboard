@@ -404,6 +404,9 @@
                                         <state key="normal" title="Save">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="BtnPressed:" destination="T5o-1O-x3h" eventType="touchUpInside" id="VjW-vc-jhX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -425,6 +428,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eIQ-Wt-xxJ"/>
                     </view>
+                    <connections>
+                        <outlet property="amountTxt" destination="fmN-MP-33W" id="m9D-T7-Uws"/>
+                        <outlet property="categoryPicker" destination="sQi-fU-NYb" id="jvm-GM-Og2"/>
+                        <outlet property="datePicker" destination="gRj-Ik-jMt" id="i3p-nb-IyZ"/>
+                        <outlet property="noteTxtArea" destination="bxz-05-6cf" id="5Pp-9E-i7Q"/>
+                        <outlet property="saveBtn" destination="QdW-Yd-vIC" id="zJ6-t0-HqG"/>
+                        <outlet property="typeLbl" destination="I1Y-Bx-Zew" id="XyQ-h9-WA7"/>
+                        <outlet property="typeSwitch" destination="2OZ-fe-Lni" id="3dh-fH-VXN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAO-30-p3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

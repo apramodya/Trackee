@@ -32,10 +32,6 @@ class AddEditCategoryViewController: UIViewController, UINavigationControllerDel
         self.hideKeyboard()
     }
     
-    @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
-        self.view.endEditing(true)
-    }
-    
     @IBAction func saveCategory(_ sender: Any) {
         guard let category = categoryName.text, category.isNotEmpty else {
             simpleAlert(title: "Error", message: "Category name is missing", toFocus: categoryName)

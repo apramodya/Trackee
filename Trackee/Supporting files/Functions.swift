@@ -43,5 +43,9 @@ extension String {
     var isNotEmpty: Bool {
         return !isEmpty
     }
+    
+    var isNumber: Bool {
+        return Double(self) != nil
+    }
 }
 
