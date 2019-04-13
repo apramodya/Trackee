@@ -31,6 +31,9 @@ class SummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        showingMonth = getCurrentMonth()
+        showingYear = getCurrentYear()
+        
         // get values for month, income, expences and balance
         getValues()
         
@@ -39,6 +42,8 @@ class SummaryViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        showingMonth = getCurrentMonth()
+        showingYear = getCurrentYear()
         getValues()
         displayValues()
     }
@@ -46,12 +51,16 @@ class SummaryViewController: UIViewController {
     @IBAction func gotoPrevMonth(_ sender: Any) {
         showingMonth = getPrevMonth()
         month.text = months[showingMonth-1]
+        getValues()
+        displayValues()
 //        print(showingYear)
     }
     
     @IBAction func gotoNextMonth(_ sender: Any) {
         showingMonth = getNextMonth()
         month.text = months[showingMonth-1]
+        getValues()
+        displayValues()
 //        print(showingYear)
     }
 }
@@ -62,8 +71,7 @@ extension SummaryViewController {
     
     func getValues() {
         // initialize variable values
-        showingMonth = getCurrentMonth()
-        showingYear = getCurrentYear()
+        
         income = getIncome(forMonth: showingMonth)
         expences = getExpences(forMonth: showingMonth)
         balance = getBalance(forMonth: showingMonth)
@@ -87,9 +95,6 @@ extension SummaryViewController {
     func loadTransactions(forMonth month: Int, type: String) -> Results<Item> {
         let beginOfMonth = Date().startOfMonth(month: showingMonth, year: showingYear)
         let endOfMonth = Date().endOfMonth(month: showingMonth, year: showingYear)
-        
-        print(beginOfMonth)
-        print(endOfMonth)
         
         return realm.objects(Item.self).filter("type == %@", type)
             .filter("date BETWEEN %@", [beginOfMonth, endOfMonth])
