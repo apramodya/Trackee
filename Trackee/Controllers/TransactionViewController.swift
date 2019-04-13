@@ -13,10 +13,13 @@ class TransactionViewController: UIViewController {
 
     // IBOutlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var monthLbl: UILabel!
     
     // variables
     var realm = try! Realm()
     var transactions: Results<Item>!
+    var showingMonth: Int = 0
+    var showingYear: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +28,34 @@ class TransactionViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        showingMonth = getCurrentMonth()
+        showingYear = getCurrentYear()
+        
+        // display month label
+        monthLbl.text = months[showingMonth-1]
+
         loadTransactions()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
     }
     
-    func loadTransactions() {
-        transactions = realm.objects(Item.self)
+    @IBAction func prevBtnPressed(_ sender: Any) {
+        showingMonth = getPrevMonth()
+        monthLbl.text = months[showingMonth-1]
+        loadTransactions()
+        tableView.reloadData()
     }
+    
+    @IBAction func nextBtnPressed(_ sender: Any) {
+        showingMonth = getNextMonth()
+        monthLbl.text = months[showingMonth-1]
+        loadTransactions()
+        tableView.reloadData()
+    }
+    
 }
 
 extension TransactionViewController: UITableViewDelegate, UITableViewDataSource {
@@ -50,7 +71,55 @@ extension TransactionViewController: UITableViewDelegate, UITableViewDataSource 
         }
         
         return UITableViewCell()
+    }    
+}
+
+extension TransactionViewController {
+    func loadTransactions() {
+        let beginOfMonth = Date().startOfMonth(month: showingMonth, year: showingYear)
+        let endOfMonth = Date().endOfMonth(month: showingMonth, year: showingYear)
+        
+        transactions = realm.objects(Item.self)
+            .filter("date BETWEEN %@", [beginOfMonth, endOfMonth])
     }
     
+    func getCurrentMonth() -> Int {
+        let date = Date()
+        let calendar = Calendar.current
+        let month = calendar.component(.month, from: date)
+        
+        return month
+    }
     
+    func getCurrentYear() -> Int {
+        let date = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        
+        return year
+    }
+    
+    func getPrevMonth() -> Int {
+        var month = showingMonth
+        month -= 1
+        
+        if month == 0 {
+            month = 12
+            showingYear -= 1
+        }
+        
+        return month
+    }
+    
+    func getNextMonth() -> Int {
+        var month = showingMonth
+        month += 1
+        
+        if month == 13 {
+            month = 1
+            showingYear += 1
+        }
+        
+        return month
+    }
 }

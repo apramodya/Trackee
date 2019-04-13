@@ -53,7 +53,6 @@ class SummaryViewController: UIViewController {
         month.text = months[showingMonth-1]
         getValues()
         displayValues()
-//        print(showingYear)
     }
     
     @IBAction func gotoNextMonth(_ sender: Any) {
@@ -61,7 +60,6 @@ class SummaryViewController: UIViewController {
         month.text = months[showingMonth-1]
         getValues()
         displayValues()
-//        print(showingYear)
     }
 }
 
@@ -71,7 +69,6 @@ extension SummaryViewController {
     
     func getValues() {
         // initialize variable values
-        
         income = getIncome(forMonth: showingMonth)
         expences = getExpences(forMonth: showingMonth)
         balance = getBalance(forMonth: showingMonth)

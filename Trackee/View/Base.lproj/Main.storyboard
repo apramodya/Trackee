@@ -207,7 +207,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sYT-WV-CvD">
-                                <rect key="frame" x="16" y="94" width="343" height="494"/>
+                                <rect key="frame" x="16" y="160" width="343" height="428"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="UaH-0q-123" customClass="ItemTableViewCell" customModule="Trackee" customModuleProvider="target">
@@ -255,13 +255,55 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1l0-wG-Hsc">
+                                <rect key="frame" x="16" y="80" width="343" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fK8-we-XgK">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="60"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="zc5-Ce-E9N"/>
+                                        </constraints>
+                                        <state key="normal" title="&lt;">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="gotoPrevMonth:" destination="4U1-hA-rIU" eventType="touchUpInside" id="qzZ-hX-wHj"/>
+                                            <action selector="prevBtnPressed:" destination="47f-f0-qeh" eventType="touchUpInside" id="c1N-c1-uQc"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="December" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="REf-Ae-z9g">
+                                        <rect key="frame" x="50" y="0.0" width="243" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAj-TX-w52">
+                                        <rect key="frame" x="303" y="0.0" width="40" height="60"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="luk-96-aDx"/>
+                                        </constraints>
+                                        <state key="normal" title="&gt;">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="gotoNextMonth:" destination="4U1-hA-rIU" eventType="touchUpInside" id="Rwd-da-hmZ"/>
+                                            <action selector="nextBtnPressed:" destination="47f-f0-qeh" eventType="touchUpInside" id="4bG-uv-m9X"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1l0-wG-Hsc" secondAttribute="trailing" constant="16" id="6ey-ZO-EFv"/>
                             <constraint firstItem="zTj-7e-qqo" firstAttribute="trailing" secondItem="sYT-WV-CvD" secondAttribute="trailing" constant="16" id="BHh-FZ-V1E"/>
-                            <constraint firstItem="sYT-WV-CvD" firstAttribute="top" secondItem="zTj-7e-qqo" secondAttribute="top" constant="30" id="G5U-0B-rfA"/>
                             <constraint firstItem="zTj-7e-qqo" firstAttribute="bottom" secondItem="sYT-WV-CvD" secondAttribute="bottom" constant="30" id="O10-da-9UU"/>
+                            <constraint firstItem="1l0-wG-Hsc" firstAttribute="leading" secondItem="XPp-CF-a3G" secondAttribute="leading" constant="16" id="OHR-MC-fKz"/>
+                            <constraint firstItem="1l0-wG-Hsc" firstAttribute="top" secondItem="zTj-7e-qqo" secondAttribute="top" constant="16" id="Oi9-7i-vPF"/>
                             <constraint firstItem="sYT-WV-CvD" firstAttribute="leading" secondItem="zTj-7e-qqo" secondAttribute="leading" constant="16" id="pTh-9o-nJN"/>
+                            <constraint firstItem="sYT-WV-CvD" firstAttribute="top" secondItem="1l0-wG-Hsc" secondAttribute="bottom" constant="20" id="xV6-SR-hkQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zTj-7e-qqo"/>
                     </view>
@@ -273,6 +315,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="monthLbl" destination="REf-Ae-z9g" id="0XJ-Iq-TdU"/>
                         <outlet property="tableView" destination="sYT-WV-CvD" id="Rxf-sE-zjm"/>
                     </connections>
                 </viewController>
