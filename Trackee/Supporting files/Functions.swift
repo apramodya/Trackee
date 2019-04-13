@@ -8,6 +8,10 @@
 
 import UIKit
 
+class Functions {
+    
+}
+
 extension UIViewController {
     
     // alert
@@ -49,3 +53,20 @@ extension String {
     }
 }
 
+extension Date {
+    func startOfMonth(month: Int, year: Int) -> Date {
+        let calendar = Calendar.current
+        var components = DateComponents()
+        components.month = month
+        components.year = year
+        let newDate = calendar.date(from: components)!
+        
+        let date = calendar.date(from: calendar.dateComponents([.year, .month], from: calendar.startOfDay(for: newDate)))!
+
+        return calendar.date(byAdding: DateComponents(day: 1), to: date)!
+    }
+    
+    func endOfMonth(month: Int, year: Int) -> Date {
+        return Calendar.current.date(byAdding: DateComponents(month: 1, day: 0), to: self.startOfMonth(month: month, year: year))!
+    }
+}

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SummaryViewController: UIViewController {
 
@@ -24,18 +25,51 @@ class SummaryViewController: UIViewController {
     var income: Double = 0.0
     var expences: Double = 0.0
     var balance: Double = 0.0
-    
+    var realm = try! Realm()
+    var transactions: Results<Item>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // get values for month, income, expences and balance
+        getValues()
+        
+        // display values for month, income, expences and balance
+        displayValues()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getValues()
+        displayValues()
+    }
+    
+    @IBAction func gotoPrevMonth(_ sender: Any) {
+        showingMonth = getPrevMonth()
+        month.text = months[showingMonth-1]
+//        print(showingYear)
+    }
+    
+    @IBAction func gotoNextMonth(_ sender: Any) {
+        showingMonth = getNextMonth()
+        month.text = months[showingMonth-1]
+//        print(showingYear)
+    }
+}
+
+extension SummaryViewController {
+    
+    // MARK: - Supporting functions
+    
+    func getValues() {
         // initialize variable values
         showingMonth = getCurrentMonth()
         showingYear = getCurrentYear()
         income = getIncome(forMonth: showingMonth)
         expences = getExpences(forMonth: showingMonth)
         balance = getBalance(forMonth: showingMonth)
-        
+    }
+    
+    func displayValues() {
         // currency formatter
         let formatter = NumberFormatter()
         formatter.locale = Locale.current
@@ -48,34 +82,37 @@ class SummaryViewController: UIViewController {
         incomeLbl.text = formatter.string(from: income as NSNumber)
         expencesLbl.text = formatter.string(from: expences as NSNumber)
         balanceLbl.text = formatter.string(from: balance as NSNumber)
+    }
+    
+    func loadTransactions(forMonth month: Int, type: String) -> Results<Item> {
+        let beginOfMonth = Date().startOfMonth(month: showingMonth, year: showingYear)
+        let endOfMonth = Date().endOfMonth(month: showingMonth, year: showingYear)
         
+        print(beginOfMonth)
+        print(endOfMonth)
+        
+        return realm.objects(Item.self).filter("type == %@", type)
+            .filter("date BETWEEN %@", [beginOfMonth, endOfMonth])
     }
-    
-    @IBAction func gotoPrevMonth(_ sender: Any) {
-        showingMonth = getPrevMonth()
-        month.text = months[showingMonth-1]
-        print(showingYear)
-    }
-    
-    @IBAction func gotoNextMonth(_ sender: Any) {
-        showingMonth = getNextMonth()
-        month.text = months[showingMonth-1]
-        print(showingYear)
-    }
-}
-
-extension SummaryViewController {
-    
-    // MARK: - Supporting functions
     
     func getIncome(forMonth month: Int) -> Double {
-        let income = 10000.00
+        let trans = loadTransactions(forMonth: month, type: types[0])
+        var amnt = 0.0
+        for transaction in trans {
+            amnt += transaction.amount
+        }
+        let income = amnt
         
         return income
     }
     
     func getExpences(forMonth month: Int) -> Double {
-        let expences = 3500.00
+        let trans = loadTransactions(forMonth: month, type: types[1])
+        var amnt = 0.0
+        for transaction in trans {
+            amnt += transaction.amount
+        }
+        let expences = amnt
         
         return expences
     }

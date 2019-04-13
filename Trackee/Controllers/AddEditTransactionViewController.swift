@@ -76,10 +76,10 @@ class AddEditTransactionViewController: UIViewController, UINavigationController
     
     @IBAction func BtnPressed(_ sender: Any) {
         getDataToSave()
-        print("Selected date \(selectedDate)")
-        print("Selected amount \(amount)")
-        print("Selected category \(selectedCategory.name)")
-        print("Note \(note)")
+//        print("Selected date \(selectedDate)")
+//        print("Selected amount \(amount)")
+//        print("Selected category \(selectedCategory.name)")
+//        print("Note \(note)")
         
         // save
         let newTransaction = Item()
