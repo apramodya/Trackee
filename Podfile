@@ -9,6 +9,6 @@ target 'Trackee' do
 
   # Pods for Trackee
   pod 'RealmSwift'
-  pod 'SwipeCellKit'
-
+  pod 'Charts'
+  
 end
