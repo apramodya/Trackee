@@ -31,6 +31,10 @@ class SummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // buttons
+        prevMonth.roundedOnLeftButton()
+        nextMonth.roundedOnRightButton()
+        
         showingMonth = getCurrentMonth()
         showingYear = getCurrentYear()
         

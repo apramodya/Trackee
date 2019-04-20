@@ -14,6 +14,9 @@ class TransactionViewController: UIViewController {
     // IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var monthLbl: UILabel!
+    @IBOutlet weak var prevMonth: UIButton!
+    @IBOutlet weak var nextMonth: UIButton!
+    
     
     // variables
     var realm = try! Realm()
@@ -24,6 +27,10 @@ class TransactionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // buttons
+        prevMonth.roundedOnLeftButton()
+        nextMonth.roundedOnRightButton()
+        
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
@@ -39,6 +46,10 @@ class TransactionViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        showingMonth = getCurrentMonth()
+        showingYear = getCurrentYear()
+        monthLbl.text = months[showingMonth-1]
+        loadTransactions()
         tableView.reloadData()
     }
     
