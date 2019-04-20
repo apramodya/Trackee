@@ -17,6 +17,7 @@ class CategoryViewController: UIViewController {
     // variables
     var realm = try! Realm()
     var categories: Results<Category>!
+    var categoryToPass: Category?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,18 +32,12 @@ class CategoryViewController: UIViewController {
         tableView.reloadData()
     }
 
-    
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
-
     func loadCategories() {
         categories = realm.objects(Category.self)
     }
 }
 
+    // MARK: - Tableview methods
 extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
@@ -62,5 +57,14 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         return 70
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        categoryToPass = categories[indexPath.row]
+        performSegue(withIdentifier: "toEditCategory", sender: self)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? AddEditCategoryViewController {
+            destinationVC.selectedCategory = categoryToPass
+        }
+    }
 }

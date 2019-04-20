@@ -80,7 +80,7 @@
                     <navigationItem key="navigationItem" id="c5B-aw-3wR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pD5-dG-Tbf">
                             <connections>
-                                <segue destination="hkP-El-S3Q" kind="show" id="RCu-25-YlG"/>
+                                <segue destination="hkP-El-S3Q" kind="show" identifier="toEditCategory" id="RCu-25-YlG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

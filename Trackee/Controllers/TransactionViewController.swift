@@ -81,6 +81,7 @@ extension TransactionViewController {
         
         transactions = realm.objects(Item.self)
             .filter("date BETWEEN %@", [beginOfMonth, endOfMonth])
+            .sorted(byKeyPath: "date", ascending: false)
     }
     
     func getCurrentMonth() -> Int {
