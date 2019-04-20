@@ -25,6 +25,9 @@ class AddEditCategoryViewController: UIViewController, UINavigationControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Button
+        saveBtn.layer.cornerRadius = 5
+        
         // Do any additional setup after loading the view.
         typePicker.delegate = self
         typePicker.dataSource = self
@@ -36,8 +39,10 @@ class AddEditCategoryViewController: UIViewController, UINavigationControllerDel
             
             if categoryToEdit.type == "Expence" {
                 typePicker.selectRow(1, inComponent: 0, animated: true)
+                selectedType = categoryToEdit.type
             } else {
                 typePicker.selectRow(0, inComponent: 0, animated: true)
+                selectedType = categoryToEdit.type
             }
             
         }
@@ -55,23 +60,25 @@ class AddEditCategoryViewController: UIViewController, UINavigationControllerDel
         // add new
         if selectedCategory == nil {
             let newCategory = Category()
-            newCategory.name = category
+            newCategory.name = category.capitalized
             newCategory.type = selectedType
             
-            self.save(cateogry: newCategory)
+            self.saveCategory(cateogry: newCategory)
         } else {
             // edit
             let updatingCategory = Category()
             updatingCategory.categoryID = selectedCategory.categoryID
-            updatingCategory.name = category
+            updatingCategory.name = category.capitalized
             updatingCategory.type = selectedType
             
-            self.update(cateogry: updatingCategory)
+            self.updateCategory(cateogry: updatingCategory)
         }
+        
+        selectedCategory = nil
     }
     
     // save category
-    func save(cateogry: Category) {
+    func saveCategory(cateogry: Category) {
         do {
             try realm.write {
                 realm.add(cateogry, update: false)
@@ -85,7 +92,7 @@ class AddEditCategoryViewController: UIViewController, UINavigationControllerDel
     }
     
     // update category
-    func update(cateogry: Category) {
+    func updateCategory(cateogry: Category) {
         do {
             try realm.write {
                 realm.add(cateogry, update: true)

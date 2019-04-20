@@ -12,18 +12,18 @@ import RealmSwift
 class AddEditTransactionViewController: UIViewController, UINavigationControllerDelegate {
 
     // IBOutlets
-    @IBOutlet weak var typeLbl: UILabel!
-    @IBOutlet weak var typeSwitch: UISwitch!
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var amountTxt: UITextField!
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var noteTxtArea: UITextView!
     @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var typePicker: UIPickerView!
     
     // variables
     var realm = try! Realm()
     var categories: Results<Category>!
-    var selectedType: String = types[1] // expence
+    var selectedType: String = types[0] // income
     var selectedDate: Date = Date()
     var amount: Double = 0.0
     var selectedCategory: Category!
@@ -32,19 +32,30 @@ class AddEditTransactionViewController: UIViewController, UINavigationController
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Button
+        saveBtn.layer.cornerRadius = 5
+        
         // Do any additional setup after loading the view.
         loadCategories()
-        selectedCategory = categories[0]
+        
         
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
+        
+        typePicker.delegate = self
+        typePicker.dataSource = self
         
         // dismiss keyboard
         self.hideKeyboard()
     }
 
     func loadCategories() {
-        categories = realm.objects(Category.self).filter("type BEGINSWITH  'E'").sorted(byKeyPath: "name")
+        if selectedType == types[1] {
+            categories = realm.objects(Category.self).filter("type BEGINSWITH  'E'").sorted(byKeyPath: "name")
+        } else {
+            categories = realm.objects(Category.self).filter("type BEGINSWITH  'I'").sorted(byKeyPath: "name")
+        }
+        selectedCategory = categories[0]
     }
     
     func getDataToSave() {
@@ -76,10 +87,6 @@ class AddEditTransactionViewController: UIViewController, UINavigationController
     
     @IBAction func BtnPressed(_ sender: Any) {
         getDataToSave()
-//        print("Selected date \(selectedDate)")
-//        print("Selected amount \(amount)")
-//        print("Selected category \(selectedCategory.name)")
-//        print("Note \(note)")
         
         // save
         let newTransaction = Item()
@@ -95,20 +102,40 @@ class AddEditTransactionViewController: UIViewController, UINavigationController
 }
 
 extension AddEditTransactionViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    // Category picker view methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categories.count
+        if pickerView == categoryPicker {
+            return categories.count
+        } else if pickerView == typePicker {
+            return types.count
+        }
+        
+        return 0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categories[row].name
+        if pickerView == categoryPicker {
+            return categories[row].name
+        } else if pickerView == typePicker {
+            return types[row]
+        }
+        return ""
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedCategory = categories[row]
+        if pickerView == categoryPicker {
+            selectedCategory = categories[row]
+        } else if pickerView == typePicker {
+            selectedType = types[row]
+            loadCategories()
+            categoryPicker.reloadAllComponents()
+        }
+        
     }
     
 }

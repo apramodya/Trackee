@@ -30,10 +30,22 @@ class CategoryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
+        categoryToPass = nil
     }
 
     func loadCategories() {
-        categories = realm.objects(Category.self)
+        categories = realm.objects(Category.self).sorted(byKeyPath: "type", ascending: true)
+    }
+    
+    func deleteCategory(category: Category) {
+        do {
+            try realm.write {
+                realm.delete(category)
+            }
+        } catch {
+            debugPrint("Error in deleting category. >>>> \(error.localizedDescription)")
+            return
+        }
     }
 }
 
@@ -66,5 +78,11 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         if let destinationVC = segue.destination as? AddEditCategoryViewController {
             destinationVC.selectedCategory = categoryToPass
         }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let categoryToDelete = categories[indexPath.row]
+        deleteCategory(category: categoryToDelete)
+        tableView.reloadData()
     }
 }
