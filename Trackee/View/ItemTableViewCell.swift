@@ -32,9 +32,9 @@ class ItemTableViewCell: UITableViewCell {
         itemAmount.text = formatter.string(from: transaction.amount as NSNumber)
         
         if transaction.type == "Income" {
-            itemCategory.textColor = UIColor.green
+            itemCategory.textColor = color1
         } else {
-            itemCategory.textColor = UIColor.blue
+            itemCategory.textColor = color2
         }
     }
 

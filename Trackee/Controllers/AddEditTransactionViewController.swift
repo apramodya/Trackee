@@ -28,6 +28,7 @@ class AddEditTransactionViewController: UIViewController, UINavigationController
     var amount: Double = 0.0
     var selectedCategory: Category!
     var note: String = ""
+    var selectedTransaction: Item!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,35 @@ class AddEditTransactionViewController: UIViewController, UINavigationController
         typePicker.delegate = self
         typePicker.dataSource = self
         
+        if let transactionToEdit = selectedTransaction {
+            saveBtn.setTitle("Edit", for: .normal)
+            
+            // amount
+            amountTxt.text = String(transactionToEdit.amount)
+            
+            // date
+            datePicker.setDate(transactionToEdit.date, animated: false)
+            selectedDate = transactionToEdit.date
+            
+            // type
+            if transactionToEdit.type == "Expence" {
+                typePicker.selectRow(1, inComponent: 0, animated: true)
+                selectedType = transactionToEdit.type
+            } else {
+                typePicker.selectRow(0, inComponent: 0, animated: true)
+                selectedType = transactionToEdit.type
+            }
+            
+            // cateogry
+            loadCategories()
+            let cateIndex = categories.index(where: { $0.name == transactionToEdit.category })!
+            selectedCategory = categories[cateIndex]
+            categoryPicker.selectRow(cateIndex, inComponent: 0, animated: false)
+            
+            // note
+            noteTxtArea.text = transactionToEdit.note
+        }
+        
         // dismiss keyboard
         self.hideKeyboard()
     }
@@ -58,7 +88,35 @@ class AddEditTransactionViewController: UIViewController, UINavigationController
         selectedCategory = categories[0]
     }
     
-    func getDataToSave() {
+    func saveTransaction(transaction: Item) {
+        do {
+            try realm.write {
+                realm.add(transaction, update: false)
+                print("Item added")
+            }
+        } catch {
+            debugPrint("Error in saving item. >>>> \(error.localizedDescription)")
+            return
+        }
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func updateTransaction(transaction: Item) {
+        do {
+            try realm.write {
+                realm.add(transaction, update: true)
+                print("Item updated")
+            }
+        } catch {
+            debugPrint("Error in updating item. >>>> \(error.localizedDescription)")
+            return
+        }
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func BtnPressed(_ sender: Any) {
         selectedDate = datePicker.date
         note = noteTxtArea.text
         
@@ -68,35 +126,31 @@ class AddEditTransactionViewController: UIViewController, UINavigationController
             return
         }
         amount = Double(guardedAmount)!
-    }
-    
-    func saveTransaction(transaction: Item) {
-        do {
-            try realm.write {
-                realm.add(transaction)
-                print("Item added")
-            }
-        } catch {
-            debugPrint("Error in saving item. >>>> \(error.localizedDescription)")
-            return
+        
+        if selectedTransaction == nil {
+            // save
+            let newTransaction = Item()
+            newTransaction.type = selectedType
+            newTransaction.date = selectedDate
+            newTransaction.amount = amount
+            newTransaction.note = note
+            newTransaction.category = selectedCategory.name
+            
+            self.saveTransaction(transaction: newTransaction)
+        } else {
+            // edit
+            let updatingTransaction = Item()
+            updatingTransaction.itemID = selectedTransaction.itemID
+            updatingTransaction.type = selectedType
+            updatingTransaction.date = selectedDate
+            updatingTransaction.amount = amount
+            updatingTransaction.note = note
+            updatingTransaction.category = selectedCategory.name
+            
+            self.updateTransaction(transaction: updatingTransaction)
         }
-        
-        navigationController?.popViewController(animated: true)
-        
-    }
-    
-    @IBAction func BtnPressed(_ sender: Any) {
-        getDataToSave()
-        
-        // save
-        let newTransaction = Item()
-        newTransaction.type = selectedType
-        newTransaction.date = selectedDate
-        newTransaction.amount = amount
-        newTransaction.note = note
-        newTransaction.category = selectedCategory.name
-        
-        self.saveTransaction(transaction: newTransaction)
+     
+        selectedTransaction = nil
     }
     
 }

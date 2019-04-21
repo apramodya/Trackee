@@ -23,6 +23,7 @@ class TransactionViewController: UIViewController {
     var transactions: Results<Item>!
     var showingMonth: Int = 0
     var showingYear: Int = 0
+    var itemToPass: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,7 @@ class TransactionViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        itemToPass = nil
         showingMonth = getCurrentMonth()
         showingYear = getCurrentYear()
         monthLbl.text = months[showingMonth-1]
@@ -82,7 +84,24 @@ extension TransactionViewController: UITableViewDelegate, UITableViewDataSource 
         }
         
         return UITableViewCell()
-    }    
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        itemToPass = transactions[indexPath.row]
+        performSegue(withIdentifier: "toEditTransaction", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? AddEditTransactionViewController {
+            destinationVC.selectedTransaction = itemToPass
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let itemToDelete = transactions[indexPath.row]
+        deleteTransaction(item: itemToDelete)
+        tableView.reloadData()
+    }
 }
 
 extension TransactionViewController {
@@ -93,6 +112,17 @@ extension TransactionViewController {
         transactions = realm.objects(Item.self)
             .filter("date BETWEEN %@", [beginOfMonth, endOfMonth])
             .sorted(byKeyPath: "date", ascending: false)
+    }
+    
+    func deleteTransaction(item: Item) {
+        do {
+            try realm.write {
+                realm.delete(item)
+            }
+        } catch {
+            debugPrint("Error in deleting item. >>>> \(error.localizedDescription)")
+            return
+        }
     }
     
     func getCurrentMonth() -> Int {

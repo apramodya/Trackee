@@ -37,6 +37,10 @@ class SummaryViewController: UIViewController {
         prevMonth.roundedOnLeftButton()
         nextMonth.roundedOnRightButton()
         
+        // labels
+        incomeLbl.textColor = color1
+        expencesLbl.textColor = color2
+        
         showingMonth = getCurrentMonth()
         showingYear = getCurrentYear()
         
@@ -102,8 +106,7 @@ extension SummaryViewController {
         
         chartView.data = data
         
-        let color1 = UIColor(red: 58/255, green: 130/255, blue: 244/255, alpha: 1)
-        let color2 = UIColor(red: 145/255, green: 187/255, blue: 255/255, alpha: 1)
+        
         dataSet.colors = [color1, color2]
         
         data.setValueFont(.systemFont(ofSize: 14, weight: .bold))

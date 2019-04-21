@@ -21,9 +21,9 @@ class CategoryTableViewCell: UITableViewCell {
         categoryName.text = category.name
         
         if category.type == "Income" {
-            categoryName.textColor = UIColor.green
+            categoryName.textColor = color1
         } else {
-            categoryName.textColor = UIColor.blue
+            categoryName.textColor = color2
         }
     }
     
