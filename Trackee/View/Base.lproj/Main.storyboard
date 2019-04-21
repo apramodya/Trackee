@@ -20,7 +20,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3z3-s8-Pg8"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="twN-ef-Wnp"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="settings" id="twN-ef-Wnp">
+                        <color key="badgeColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJJ-2I-aSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -653,7 +655,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bIU-B3-sL3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Summary" id="A8Q-MM-bCn"/>
+                    <tabBarItem key="tabBarItem" title="Summary" image="summary" selectedImage="summary" id="A8Q-MM-bCn">
+                        <color key="badgeColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="balanceLbl" destination="DTs-3t-HRx" id="ZU5-UG-DQd"/>
                         <outlet property="chartView" destination="IEV-jR-X47" id="hsX-wI-YHi"/>
@@ -692,7 +696,9 @@
         <scene sceneID="fmW-GC-z6j">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p95-cG-wjA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Categories" id="DCI-nC-jsp"/>
+                    <tabBarItem key="tabBarItem" title="Categories" image="categories" selectedImage="categories" id="DCI-nC-jsp">
+                        <color key="badgeColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1db-4Z-7Yp">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -711,7 +717,9 @@
         <scene sceneID="3nH-3P-3I9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p6z-nO-sE9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Transactions" id="aVN-2l-M3G"/>
+                    <tabBarItem key="tabBarItem" title="Transactions" image="transactions" selectedImage="transactions" id="aVN-2l-M3G">
+                        <color key="badgeColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dYN-CZ-49g">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -727,4 +735,10 @@
             <point key="canvasLocation" x="2061.5999999999999" y="-75.112443778110944"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="categories" width="36" height="36"/>
+        <image name="settings" width="36" height="36"/>
+        <image name="summary" width="36" height="36"/>
+        <image name="transactions" width="36" height="36"/>
+    </resources>
 </document>
