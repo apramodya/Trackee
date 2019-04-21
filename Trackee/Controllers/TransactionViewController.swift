@@ -15,8 +15,7 @@ class TransactionViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var monthLbl: UILabel!
     @IBOutlet weak var prevMonth: UIButton!
-    @IBOutlet weak var nextMonth: UIButton!
-    
+    @IBOutlet weak var nextMonth: UIButton!    
     
     // variables
     var realm = try! Realm()
@@ -101,6 +100,10 @@ extension TransactionViewController: UITableViewDelegate, UITableViewDataSource 
         let itemToDelete = transactions[indexPath.row]
         deleteTransaction(item: itemToDelete)
         tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }
 
