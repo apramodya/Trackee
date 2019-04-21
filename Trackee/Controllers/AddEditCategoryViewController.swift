@@ -59,18 +59,16 @@ class AddEditCategoryViewController: UIViewController, UINavigationControllerDel
         
         // add new
         if selectedCategory == nil {
-            let newCategory = Category()
-            newCategory.name = category.capitalized
-            newCategory.type = selectedType
-            
+            let newCategory = Category(name: category.capitalized,
+                                       type: selectedType)
+        
             self.saveCategory(cateogry: newCategory)
         } else {
             // edit
-            let updatingCategory = Category()
-            updatingCategory.categoryID = selectedCategory.categoryID
-            updatingCategory.name = category.capitalized
-            updatingCategory.type = selectedType
-            
+            let updatingCategory = Category(categoryID: selectedCategory.categoryID,
+                                            name: category.capitalized,
+                                            type: selectedType)
+           
             self.updateCategory(cateogry: updatingCategory)
         }
         

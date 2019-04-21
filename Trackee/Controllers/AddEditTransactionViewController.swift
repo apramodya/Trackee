@@ -129,23 +129,21 @@ class AddEditTransactionViewController: UIViewController, UINavigationController
         
         if selectedTransaction == nil {
             // save
-            let newTransaction = Item()
-            newTransaction.type = selectedType
-            newTransaction.date = selectedDate
-            newTransaction.amount = amount
-            newTransaction.note = note
-            newTransaction.category = selectedCategory.name
+            let newTransaction = Item(type: selectedType,
+                                      date: selectedDate,
+                                      amount: amount,
+                                      note: note,
+                                      category: selectedCategory.name)
             
             self.saveTransaction(transaction: newTransaction)
         } else {
             // edit
-            let updatingTransaction = Item()
-            updatingTransaction.itemID = selectedTransaction.itemID
-            updatingTransaction.type = selectedType
-            updatingTransaction.date = selectedDate
-            updatingTransaction.amount = amount
-            updatingTransaction.note = note
-            updatingTransaction.category = selectedCategory.name
+            let updatingTransaction = Item(itemID: selectedTransaction.itemID,
+                                           type: selectedType,
+                                           date: selectedDate,
+                                           amount: amount,
+                                           note: note,
+                                           category: selectedCategory.name)
             
             self.updateTransaction(transaction: updatingTransaction)
         }
